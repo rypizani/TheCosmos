@@ -47,3 +47,10 @@ export const StyledPlanetParagraph = styled.p`
   margin: 0;
   flex-grow: 1;
 `;
+
+export const ServicesIcon = styled.img`
+    height: 250px;
+    width: 250px;
+    margin-bottom: 10px;
+    border-radius:30px;
+`

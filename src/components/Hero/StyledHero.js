@@ -1,84 +1,103 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md'
 
-import Button from "../Button/Button";
-import CelestialObject from "../CelestialObject/CelestialObject";
-import { BackgroundSVG } from "./Hero";
-
-export const StyledSection = styled.section`
-  position: relative;
-  min-height: 90vh;
-  display: grid;
-  align-content: center;
-  justify-items: center;
-
-  @media (min-width: 48em) {
-    grid-template-columns: repeat(12, 1fr);
-    min-height: 100vh;
-  }
-`;
-
-export const StyledContentContainer = styled.div`
-  text-align: center;
-  
-  @media (min-width: 48em) {
-    grid-column: 1 / 8;
-    text-align: start;
-  }
-`;
-
-export const StyledHeading = styled.h1`
-  font-size: 2rem;
-
-  @media (min-width: 48em) {
-    font-size: 3rem;
-  }
-`;
-
-export const StyledParagraph = styled.p``;
-
-export const StyledButton = styled(Button)`
-  font-size: 1.1rem;
-  padding: 1em 2em;
-`;
-
-export const StyledEarthAndMoonContainer = styled.div`
-  position: absolute;
-  opacity: 0.2;
-  inset: 0;
-  margin: auto;
-  width: 100%;
-  aspect-ratio: 1;
-  padding: 2em;
-  z-index: -10;
-
-  @media (min-width: 48em) {
+export const HeroContainer = styled.div`
+    background: #0c0c0c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    height: 800px;
     position: relative;
-    grid-column: 8 / 13;
-    opacity: 1;
-    padding: 4em;
-  }
+    z-index: 1;
+    :before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+        z-index: 2;
+    }
 `;
 
-export const StyledEarth = styled(CelestialObject)``
+export const HeroBg = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+`;
 
-export const StyledMoon = styled(CelestialObject)`
-  position: absolute;
-  inset-block-start: 2em;
-  inset-inline-end: 2em;
-  width: 10%;
-  height: 10%;
+export const VideoBg = styled.video`
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    background: #232a34;
+`;
+
+export const HeroContent = styled.div`
+    z-index: 3;
+    max-width: 1200px;
+    position: absolute;
+    padding: 8px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
-export const StyledWaveBackground = styled.svg`
-  display: none;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  z-index: -20;
-  inset-block-end: 0;
-  inset-inline: 0;
+export const HeroH1 = styled.h1`
+    color: #fff;
+    font-size: 48px;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+        font-size: 40px;
+    }
 
-  @media (min-width: 48em) {
-    display: block;
-  }
+    @media screen and (max-width: 480px) {
+        font-size: 32px;
+    }
+`
+
+export const HeroP = styled.p`
+    margin-top: 24px;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    max-width: 600px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 24px;
+    }
+
+    @media screen and (max-width: 480px) {
+        font-size: 18px;
+    }
+`
+
+export const HeroBtnWrapper = styled.div`
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+export const ArrowForward = styled(MdArrowForward)`
+    margin-left: 8px;
+    font-size: 20px;
+`
+
+export const ArrowRight = styled(MdKeyboardArrowRight)`
+
+`
+
+export const Img = styled.img`
+    width: 50%;
+    padding-right: 0;
 `

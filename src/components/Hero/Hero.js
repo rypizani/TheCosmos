@@ -1,32 +1,64 @@
+import React, { useState } from 'react'
+// pexels.com for free stock videos
+import Video from '../../videos/mundo.mp4'
+import img from '../../images/Logo Original 2.png'
 import {
-  StyledSection,
-  StyledContentContainer,
-  StyledHeading,
-  StyledParagraph,
-  StyledButton,
-  StyledEarthAndMoonContainer,
-  StyledEarth,
-  StyledMoon,
-  StyledWaveBackground
-} from "./StyledHero";
+    HeroContainer,
+    HeroBg,
+    VideoBg,
+    HeroContent,
+    HeroH1,
+    HeroP,
+    HeroBtnWrapper,
+    ArrowForward,
+    ArrowRight,
+    Img
+} from './StyledHero'
 
-import { colors } from "../../constants";
+import { Button } from '../ButtonElement'
 
-const HeroSection = () => (
-  <StyledSection>
-    <StyledContentContainer>
-      <StyledHeading>Get to know our neighbourhood better</StyledHeading>
-      <StyledParagraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porta, diam quis semper tincidunt, ante ante pellentesque lectus, vitae mollis tellus massa non risus. Nullam non eros auctor, viverra erat eget, condimentum nibh.</StyledParagraph>
-      <StyledButton to="/planets">Start exploring</StyledButton>
-    </StyledContentContainer>
-    <StyledEarthAndMoonContainer>
-      <StyledEarth color={colors.terre}/>
-      <StyledMoon color={colors.moon}/>
-    </StyledEarthAndMoonContainer>
-    <StyledWaveBackground width="1440" height="797" viewBox="0 0 1440 797" fill="none">
-      <path d="M1440 575C1025.48 572.005 817.486 0 0 0V796.5H1440V575Z" fill="#141823"/>
-    </StyledWaveBackground>
-  </StyledSection>
-);
+const Hero = () => {
 
-export default HeroSection;
+    const [ hover, setHover ] = useState(false)
+
+    const onHover = () => {
+        setHover(!hover)
+    }
+
+    return (
+        <HeroContainer id="home">
+            <HeroBg>
+                <VideoBg autoPlay loop muted src={Video} type='video/mp4'/>
+            </HeroBg>
+            <HeroContent>
+
+            <Img src={img}/>
+
+                <HeroH1>Eficiência, Organização E Colaboração </HeroH1>
+                <HeroP> 
+                    Sign up for a new account today and receive 
+                    free access to the world's first interactive guga.
+                </HeroP>
+                <HeroBtnWrapper>
+                     <Button 
+                        to="signup" 
+                        onMouseEnter={ onHover } 
+                        onMouseLeave={ onHover }
+                        primary="true"
+                        dark="true"
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        activeClass='active'
+                        exact='true'
+                        > 
+                        Conheça Mais 
+                        {hover ? <ArrowForward/> : <ArrowRight/>} 
+                    </Button> 
+                </HeroBtnWrapper>
+            </HeroContent>
+        </HeroContainer>
+    )
+}
+
+export default Hero
